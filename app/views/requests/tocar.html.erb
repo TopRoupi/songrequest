@@ -1,0 +1,3 @@
+<%= turbo_frame_tag @request, "player" do %>
+  <%== VideoEmbedUrlGenerator.new(@request.link).construct_iframe %>
+<% end %>

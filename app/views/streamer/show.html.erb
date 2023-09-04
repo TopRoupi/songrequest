@@ -1,2 +1,13 @@
-<h1>Streamer#show</h1>
-<p>Find me in app/views/streamer/show.html.erb</p>
+<h1>streamer constroller</h1>
+
+<p> requests: </p>
+<% Request.all.each do |r| %>
+  <%= r.link %>
+  <%= button_to "Destroy this request", r, method: :delete %>
+
+  <%= turbo_frame_tag r, "player" do %>
+    <%= link_to "tocar", tocar_request_path(r) %>
+  <% end %>
+  <%# <%== VideoEmbedUrlGenerator.new(r.link).construct_iframe %>
+  <br>
+<% end %>

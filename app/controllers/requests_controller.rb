@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request, only: %i[ show edit update destroy ]
+  before_action :set_request, only: %i[ show edit update destroy tocar ]
 
   # GET /requests or /requests.json
   def index
@@ -8,6 +8,9 @@ class RequestsController < ApplicationController
 
   # GET /requests/1 or /requests/1.json
   def show
+  end
+
+  def tocar
   end
 
   # GET /requests/new
@@ -52,7 +55,7 @@ class RequestsController < ApplicationController
     @request.destroy
 
     respond_to do |format|
-      format.html { redirect_to requests_url, notice: "Request was successfully destroyed." }
+      format.html { redirect_to request.referrer, notice: "Request was successfully destroyed." }
       format.json { head :no_content }
     end
   end
